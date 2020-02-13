@@ -1,20 +1,20 @@
 `use strict`
 
 class Storage {
-    constructor ( array ) {
-        this.array = array;
+    constructor ( productsArr ) {
+        this.productsArr = productsArr;
     }
 
     getItems () {
-        return this.array;
+        return this.productsArr;
     };
 
-    addItem ( item ) {
-        this.array.push( item );
+    addItem ( product ) {
+        this.productsArr.push( product );
     };
 
-    removeItem ( item ) {
-        this.array.splice( this.array.indexOf( item ), 1 );
+    removeItem ( product ) {
+        this.productsArr.splice( this.productsArr.indexOf( product ), 1 );
     }
 }
 

@@ -6,10 +6,10 @@ class Car {
         console.log( `maxSpeed: ${car.maxSpeed}, speed: ${car.speed}, isOn: ${car.isOn}, distance: ${car.distance}, price: ${car.price} ` )
     }
 
-    constructor ( obj ) {
+    constructor ( { price, maxSpeed } ) {
         this.speed = 0;
-        this._price = obj.price;
-        this.maxSpeed = obj.maxSpeed;
+        this._price = price;
+        this.maxSpeed = maxSpeed;
         this.isOn = false;
         this.distance = 0;
     }
@@ -18,8 +18,8 @@ class Car {
         return this._price;
     }
 
-    set price ( value ) {
-        this._price = value;
+    set price ( priceValue ) {
+        this._price = priceValue;
     }
 
     turnOn () {
@@ -31,21 +31,21 @@ class Car {
         this.speed = 0;
     }
 
-    accelerate ( value ) {
-        if( this.speed + value <= this.maxSpeed ) {
-            this.speed = this.speed + value;
+    accelerate ( accelerateValue ) {
+        if( this.speed + accelerateValue <= this.maxSpeed ) {
+            this.speed = this.speed + accelerateValue;
         }
     }
 
-    decelerate ( value ) {
-        if( this.speed > 0 ) {
-            this.speed = this.speed - value;
+    decelerate ( decelerateValue ) {
+        if( this.speed > 0 && this.isOn ) {
+            this.speed = this.speed - decelerateValue;
         }
     }
 
-    drive ( hours ) {
+    drive ( hoursInMove ) {
         if( this.isOn ) {
-            this.distance = hours * this.speed;
+            this.distance = hoursInMove * this.speed;
         }
     }
 }
