@@ -3,7 +3,7 @@
 class StringBuilder {
 
     constructor ( value ) {
-        return this._value = value;
+        this._value = value;
     }
 
     get value () {
